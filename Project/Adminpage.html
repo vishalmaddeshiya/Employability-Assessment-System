@@ -1,0 +1,93 @@
+<?php
+session_start();
+$host="localhost";
+$user="root";
+$password="";
+$con=mysqli_connect($host,$user,$password,"company");
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+	}
+	echo "Connected successfully";
+	
+	if(!isset($_SESSION["user"]))
+	{
+	  header("location:loginpage.html");
+	}
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <tittle></tittle>
+    </head>
+    <style type="text/css">
+        body{
+            margin: 0px;
+            border: 0px;
+        }
+        .header{
+            width: 100%;
+            height: 120px;
+            background-color: black;
+            color: white;
+        }
+        #image{
+            height: 80px;
+            background-color: white;
+            border-radius: 50px;
+        }
+        .main-content{
+            display: flex;
+        }
+        
+        .sidebar{
+            flex: 1;
+            height: 530px;
+            background-color: white;
+        }
+        .content{
+            flex: 3;
+            height: 530px;
+            background: url(Em.jpg);
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        ul li{
+            padding: 20px;
+            border-bottom: 2px solid grey;
+            list-style-type: none;
+        }
+        ul li:hover{
+            background-color: royalblue;
+            color: white;
+        }
+        a:link{
+            color: black;
+            text-decoration: none;
+        }
+        a:visited{
+            color: black;
+        }
+    </style>
+    <body>
+        <div class="header">
+            <center><img src="admin_icon.png" alt="adminicon" id="image">
+                <br><b>Welcome to Admin Panel....!</b></center>
+        </div>
+        <div class="main-content">
+            <div class="sidebar">
+                <ul>
+                    <a href="15.html" target="_top"><li>Add Employee</li></a>
+                    <a href="newdelete.php"><li>Edit/Delete Employee</li></a>
+                    <a href="rank.php"><li>View Ranking</li>
+					<a href="Details.php"><li>Detail of employees</li></a>
+                    <a href="changepassword.php"><li>Change password</li></a>
+                    <a href="logout.php"><li>logout</li></a>
+                </ul>
+            </div>
+            <div class="content">
+                <center><h3>Hello Admin!</h3></center>  
+            </div>
+        </div>
+    </body>
+</html>
